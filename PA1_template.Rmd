@@ -8,10 +8,7 @@ output:
 
 ## Loading and preprocessing the data
 
-In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
 
-act <- read.csv("activity.csv")
-str(act)
 
 ## What is mean total number of steps taken per day?
 
