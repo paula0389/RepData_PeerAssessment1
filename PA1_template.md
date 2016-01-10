@@ -7,10 +7,6 @@ For this assignment, the first step is to load the data file "activity.csv" by r
 
 In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
 
-For this assignment, the first step is to load the data file "activity.csv" by read.csv
-
-In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
-
 
 ```r
 cls = c("integer", "character", "integer")
