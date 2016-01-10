@@ -3,16 +3,13 @@
 
 ## 1. Loading and preprocessing the data
 
-<<<<<<< HEAD
 For this assignment, the first step is to load the data file "activity.csv" by read.csv
 
 In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
 
-=======
 For this assignment, the first step is to load the data file "activity.csv" by read.csv
 
 In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
->>>>>>> origin/master
 
 
 ```r
@@ -30,11 +27,6 @@ head(df)
 ## 5    NA 2012-10-01       20
 ## 6    NA 2012-10-01       25
 ```
-
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
 Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame "df_ign". The original data frame is kept for later data imputation.
 
