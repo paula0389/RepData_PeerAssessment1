@@ -66,10 +66,7 @@ img {
 
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>1. Loading and preprocessing the data</h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD For this assignment, the first step is to load the data file “activity.csv” by read.csv</p>
-<p>In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.</p>
-<p>======= For this assignment, the first step is to load the data file “activity.csv” by read.csv</p>
-<p>In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data. &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</p>
+<p>For this assignment, the first step is to load the data file “activity.csv” by read.csv</p>
 <pre class="r"><code>cls = c(&quot;integer&quot;, &quot;character&quot;, &quot;integer&quot;)
 df &lt;- read.csv(&quot;activity.csv&quot;, head=TRUE, colClasses=cls, na.strings=&quot;NA&quot;)
 head(df)</code></pre>
@@ -80,8 +77,6 @@ head(df)</code></pre>
 ## 4    NA 2012-10-01       15
 ## 5    NA 2012-10-01       20
 ## 6    NA 2012-10-01       25</code></pre>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p>======= &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/master</p>
 <p>Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame “df_ign”. The original data frame is kept for later data imputation.</p>
 <pre class="r"><code>df$date &lt;- as.Date(df$date)
 df_ign &lt;- subset(df, !is.na(df$steps))</code></pre>

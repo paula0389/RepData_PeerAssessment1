@@ -5,6 +5,10 @@
 
 For this assignment, the first step is to load the data file "activity.csv" by read.csv
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
 
 ```r
 cls = c("integer", "character", "integer")
@@ -22,6 +26,10 @@ head(df)
 ## 6    NA 2012-10-01       25
 ```
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
 Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame "df_ign". The original data frame is kept for later data imputation.
 
 
@@ -61,7 +69,6 @@ mean(dailysum)
 ## [1] 10766.19
 ```
 
-
 ```r
 median(dailysum)
 ```
@@ -71,7 +78,6 @@ median(dailysum)
 ```
 
 So the mean is 10766 steps and the median is 10765 steps.
-
 
 ## 3. What is the average daily activity pattern?
 
