@@ -17,7 +17,6 @@ cls = c("integer", "character", "integer")
 df <- read.csv("activity.csv", head=TRUE, colClasses=cls, na.strings="NA")
 head(df)
 ```
-=======
 
 
 Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame "df_ign". The original data frame is kept for later data imputation.
@@ -49,13 +48,11 @@ Next, calculate and report the mean and median total number of steps taken per d
 ```{r}
 mean(dailysum)
 ```
-
 ```{r}
 median(dailysum)
 ```
 
 So the mean is 10766 steps and the median is 10765 steps.
-
 
 ## 3. What is the average daily activity pattern?
 

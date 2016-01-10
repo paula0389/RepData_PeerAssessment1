@@ -3,7 +3,16 @@
 
 ## 1. Loading and preprocessing the data
 
-##### For this assignment, the first step is to load the data file "activity.csv" by read.csv
+<<<<<<< HEAD
+For this assignment, the first step is to load the data file "activity.csv" by read.csv
+
+In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
+
+=======
+For this assignment, the first step is to load the data file "activity.csv" by read.csv
+
+In loading the data for the project, I use the read.csv() function to read in the designated csv file. I used the str() function to determine the class types of the data.
+>>>>>>> origin/master
 
 
 ```r
@@ -22,7 +31,12 @@ head(df)
 ## 6    NA 2012-10-01       25
 ```
 
-##### Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame "df_ign". The original data frame is kept for later data imputation.
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
+
+Next step is to process/transform the data set for later analysis. Specifically, the type of date column is corrected, we also get rid of rows containing missing values and save the subset to a new data frame "df_ign". The original data frame is kept for later data imputation.
 
 
 ```r
@@ -32,7 +46,7 @@ df_ign <- subset(df, !is.na(df$steps))
 
 ## 2. What is mean total number of steps taken per day?
 
-##### Next, a histogram of the daily total number of steps taken is generated, showing the distribution of these totals.
+Next, a histogram of the daily total number of steps taken is generated, showing the distribution of these totals.
 
 
 ```r
@@ -50,7 +64,7 @@ hist(x=dailysum,
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 
-##### Next, calculate and report the mean and median total number of steps taken per day.
+Next, calculate and report the mean and median total number of steps taken per day.
 
 
 ```r
@@ -70,12 +84,12 @@ median(dailysum)
 ## [1] 10765
 ```
 
-##### So the mean is 10766 steps and the median is 10765 steps.
+So the mean is 10766 steps and the median is 10765 steps.
 
 
 ## 3. What is the average daily activity pattern?
 
-##### To exam the average daily activity pattern, we create a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis).
+To exam the average daily activity pattern, we create a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis).
 
 
 ```r
@@ -92,7 +106,7 @@ with(df_ia,
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
 
-##### Next is to check which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:
+Next is to check which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:
 
 
 ```r
@@ -105,11 +119,11 @@ df_ia[df_ia$avg == max_steps, ]
 ## 835      835 206.1698
 ```
 
-##### It turns out that the interval 835 contains maximum number of steps 206 .
+It turns out that the interval 835 contains maximum number of steps 206 .
 
 ## 4. Imputing missing values
 
-##### First, we calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs):
+First, we calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs):
 
 
 ```r
@@ -120,11 +134,11 @@ sum(is.na(df$steps))
 ## [1] 2304
 ```
 
-##### So the original data set has 2304 rows with missing data.
+So the original data set has 2304 rows with missing data.
 
-##### We use a simple strategy for filling in all of the missing values in the dataset. If a 5-minute interval has missing value, we use the mean for that 5-minute interval.
+We use a simple strategy for filling in all of the missing values in the dataset. If a 5-minute interval has missing value, we use the mean for that 5-minute interval.
 
-##### We create a new data frame df_impute that is equal to the original dataset but with the missing data filled in (using mean for that interval for imputation):
+We create a new data frame df_impute that is equal to the original dataset but with the missing data filled in (using mean for that interval for imputation):
 
 
 ```r
@@ -134,7 +148,7 @@ int_avg <- tapply(df_ign$steps, df_ign$interval, mean, na.rm=TRUE, simplify=T)
 df_impute$steps[ndx] <- int_avg[as.character(df_impute$interval[ndx])]
 ```
 
-##### Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day.
+Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day.
 
 
 ```r
@@ -169,20 +183,20 @@ median(new_dailysum)
 ## [1] 10766.19
 ```
 
-##### Based on the imputed data set, the new mean is 10766 and the new median is 10766 . Compare with the original mean 10766 and median 10765 , the mean doesn't change, and the median has a small change. In fact, the new median becomes identical to the mean. One possible explanation is that when we fill the missing data for the intervals, we use means for intervals, so we have more data close or identical to the means, and median is shifted and becomes identical to the mean.
+Based on the imputed data set, the new mean is 10766 and the new median is 10766 . Compare with the original mean 10766 and median 10765 , the mean doesn't change, and the median has a small change. In fact, the new median becomes identical to the mean. One possible explanation is that when we fill the missing data for the intervals, we use means for intervals, so we have more data close or identical to the means, and median is shifted and becomes identical to the mean.
 
-##### The impact of imputing missing data on the estimates of the total daily number of steps is also clear: now we have higher frquency counts in the histogram at the center region (close to the mean).
+The impact of imputing missing data on the estimates of the total daily number of steps is also clear: now we have higher frquency counts in the histogram at the center region (close to the mean).
 
 ## 5. Are there differences in activity patterns between weekdays and weekends?
 
-##### First we create a new factor variable "wk" in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+First we create a new factor variable "wk" in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 
 
 ```r
 is_weekday <- function(d) {
     wd <- weekdays(d)
-    ifelse (wd == "sábado" | wd == "domingo", "weekend", "weekday")
+    ifelse (wd == "sÃ¡bado" | wd == "domingo", "weekend", "weekday")
 }
 
 wx <- sapply(df_impute$date, is_weekday)
@@ -200,7 +214,7 @@ head(df_impute)
 ## 6 2.0943396 2012-10-01       25 weekday
 ```
 
-##### Next we make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+Next we make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
 
 
 ```r
@@ -218,4 +232,4 @@ xyplot(steps ~ interval | factor(wk),
 
 ![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
 
-##### From the panel plot it looks like the weekday activities arise earlier than the weekends - weekday activities arise around 5~6am and weekend activities arise around 8am. We can also observe that from 10am to 5pm, the weekends have higher activity levels than the weekdays.
+From the panel plot it looks like the weekday activities arise earlier than the weekends - weekday activities arise around 5~6am and weekend activities arise around 8am. We can also observe that from 10am to 5pm, the weekends have higher activity levels than the weekdays.
